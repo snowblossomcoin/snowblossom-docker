@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -eux
+
+SNOWBLOSSOM_VERSION="${SNOWBLOSSOM_VERSION:?}"
+BAZEL_VERSION="${BAZEL_VERSION:-2.0.0}"
+BAZEL_OPTIONS="${BAZEL_OPTIONS:-}"
+
+
+git clone --depth 1 --branch "${SNOWBLOSSOM_VERSION}" https://github.com/snowblossomcoin/snowblossom.git /snowblossom
+cd /snowblossom
+bazel-${BAZEL_VERSION} build ${BAZEL_OPTIONS} :Everything_deploy.jar
