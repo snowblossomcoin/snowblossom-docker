@@ -1,0 +1,2 @@
+#!/bin/bash
+docker build --build-arg SNOWBLOSSOM_VERSION=${SNOWBLOSSOM_VERSION} -t ${IMAGE_NAME} .
